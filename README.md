@@ -35,8 +35,6 @@
 
 * Bootstrap
 
-* CSS 
-
 
 ## Author's Contact
 
