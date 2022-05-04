@@ -1,13 +1,23 @@
 {% extends 'base.html'%}
 {% block content %}
+<div class="container-fluid-landing">
+    <div class="row">
 {% for news in news %}
-<a href={{news.url}} style="color: black;">
-<img src={{news.img}} alt="img">
-</a>
-<a href={{news.url}} style="color: black;">
-<h1>{{news.content}}</h1>
-</a>
-<h5>{{news.date}}</h5>
+<div class="col-md-4 d-flex">
+<div class="card" style="width: 200rem;">
+    <a href={{news.url}} style="color: black;">
+    <img src={{news.img}} class="card-img-top" alt="...">
+    </a>
+    <div class="card-body">
+        <a href={{news.url}} style="color: black;">
+      <p class="card-text">{{news.content}}</p>
+        </a>
+     <p class="card-footer">{{news.date}}</p>
+    </div>
+  </div>
+</div>
 
 {% endfor %}
+</div>
+</div>
 {% endblock %}
