@@ -3,3 +3,7 @@ class News:
         self.content = content
         self.img = img
         self.date = date
+
+class Source:
+   def __init__(self,name):
+       self.name =name
