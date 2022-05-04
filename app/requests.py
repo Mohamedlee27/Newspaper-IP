@@ -35,8 +35,9 @@ def process_results(movie_list):
     movie_results = []
     for movie_item in movie_list:
         content = movie_item.get('content')
-       
-        movie_object = News(content)
+        img = movie_item.get('urlToImage')
+
+        movie_object = News(content,img)
         movie_results.append(movie_object)
 
     return movie_results
