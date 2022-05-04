@@ -2,7 +2,8 @@ class Config:
     '''
     General configuration parent class
     '''
-    pass
+    ApiUrl='https://newsapi.org/v2/everything?q=apple&apiKey=338b3acd04e94ca08029f617b628e5b4'
+
 
 
 
@@ -14,7 +15,6 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     pass
-
 
 class DevConfig(Config):
     '''
