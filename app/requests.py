@@ -57,7 +57,27 @@ def get_source():
 
         if get_news_response['sources']:
             news_results_list = get_news_response['sources']
-            news_results = process_results(news_results_list)
+            news_results = source_results(news_results_list)
 
 
     return news_results
+def source_results(movie_list):
+
+    '''
+    Function  that processes the movie result and transform them to a list of Objects
+
+    Args:
+        movie_list: A list of dictionaries that contain movie details
+
+    Returns :
+        movie_results: A list of movie objects
+    '''
+    movie_results = []
+    for movie_item in movie_list:
+        name = movie_item.get('name')
+        
+
+        movie_object = News(name)
+        movie_results.append(movie_object)
+
+    return movie_results
