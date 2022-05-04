@@ -3,6 +3,7 @@ import urllib.request,json
 from .models import News
 
 api_url = 'https://newsapi.org/v2/everything?q=apple&apiKey=338b3acd04e94ca08029f617b628e5b4'
+source_url ='https://newsapi.org/v2/top-headlines/sources?apiKey=338b3acd04e94ca08029f617b628e5b4'
 
 def get_news():
     '''
@@ -36,8 +37,27 @@ def process_results(movie_list):
     for movie_item in movie_list:
         content = movie_item.get('content')
         img = movie_item.get('urlToImage')
+        date = movie_item.get('publishedAt')
 
-        movie_object = News(content,img)
+        movie_object = News(content,img,date)
         movie_results.append(movie_object)
 
     return movie_results
+
+def get_source():
+    '''
+    Function that gets the json response to our url request
+    '''
+
+    with urllib.request.urlopen(source_url) as url:
+        get_news_data = url.read()
+        get_news_response = json.loads(get_news_data)
+
+        news_results = None
+
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
+            news_results = process_results(news_results_list)
+
+
+    return news_results
