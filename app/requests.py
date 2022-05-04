@@ -22,3 +22,21 @@ def get_news():
 
     return news_results
 
+def process_results(movie_list):
+    '''
+    Function  that processes the movie result and transform them to a list of Objects
+
+    Args:
+        movie_list: A list of dictionaries that contain movie details
+
+    Returns :
+        movie_results: A list of movie objects
+    '''
+    movie_results = []
+    for movie_item in movie_list:
+        content = movie_item.get('content')
+       
+        movie_object = News(content)
+        movie_results.append(movie_object)
+
+    return movie_results
