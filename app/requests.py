@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from .models import News
+from .models import News, Source
 
 api_url = 'https://newsapi.org/v2/everything?q=apple&apiKey=338b3acd04e94ca08029f617b628e5b4'
 source_url ='https://newsapi.org/v2/top-headlines/sources?apiKey=338b3acd04e94ca08029f617b628e5b4'
@@ -38,8 +38,9 @@ def process_results(movie_list):
         content = movie_item.get('content')
         img = movie_item.get('urlToImage')
         date = movie_item.get('publishedAt')
+        url = movie_item.get('url')
 
-        movie_object = News(content,img,date)
+        movie_object = News(content,img,date,url)
         movie_results.append(movie_object)
 
     return movie_results
@@ -75,9 +76,10 @@ def source_results(movie_list):
     movie_results = []
     for movie_item in movie_list:
         name = movie_item.get('name')
+        url = movie_item.get('url')
         
 
-        movie_object = News(name)
+        movie_object = Source(name,url)
         movie_results.append(movie_object)
 
     return movie_results

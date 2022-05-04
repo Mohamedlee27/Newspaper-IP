@@ -13,7 +13,7 @@ def index():
     return render_template('index.html', news =news)
 
 @app.route('/source')
-def index():
+def source():
 
     '''
     View root page function that returns the index page and its data

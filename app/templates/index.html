@@ -1,8 +1,12 @@
 {% extends 'base.html'%}
 {% block content %}
 {% for news in news %}
+<a href={{news.url}} style="color: black;">
 <img src={{news.img}} alt="img">
+</a>
+<a href={{news.url}} style="color: black;">
 <h1>{{news.content}}</h1>
+</a>
 <h5>{{news.date}}</h5>
 
 {% endfor %}
